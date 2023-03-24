@@ -252,7 +252,7 @@
 			var instructionIndex = new Array(0);
 			var instructionText = new Array(0);
 			var listMap = '1111111111111111111111111111111111111111110000011111000000000111111000000';
-			var titleString = 'Pre-test Unit 2C';
+			var titleString = 'Pre-test Unit 434C';
 			var styleText = new Array(11);
 			styleText[0] = '.spacer { line-height:.7em; }';
 			styleText[1] = '.title { font-size:13pt; font-weight:bold; font-family:"Times New Roman", "Times", serif; color:#000000; }';
@@ -824,7 +824,8 @@
 
 
 			document.writeln("<html>\n<head>");
-			document.writeln("<title>" + "Pre-test Unit " + f.title.value + "</title>");
+			console.log(f.title_.value);
+			document.writeln("<title>" + "Pre-test Unit " + f.title_.value + "</title>");
 			document.writeln("<style type='text/css'>");
 			for (i = 0; i < styleText.length; ++i)
 				document.writeln("\t" + styleText[i]);
@@ -845,7 +846,7 @@
 				document.write(" not graded]");
 			}
 			document.writeln("</div><br><br>");
-			document.writeln("<div class='title'>" + titleString + "</div><br>");
+			document.writeln("<div class='title'>" + "Pre-test Unit " + f.title_.value + "</div><br>");
 			document.writeln("<table align='left' width='100%' border='0' cellpadding='0' cellspacing='0'>");
 
 			currentInstruction = 0;
@@ -1174,7 +1175,7 @@
 		<input type="text" name="num_open_ended" size="30">
 		<br></br>
 		<h2>title of exam:</h2>
-		<input type="text" name="title" size="30">
+		<input type="text" name="title_" size="30">
 		<p>Made by Kepha Sher</p>
 		
 		<a href='javascript:alert("Use the mouse to submit.")'
