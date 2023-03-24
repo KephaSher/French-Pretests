@@ -4,7 +4,7 @@
 <head>
 	<meta name='generator' content='ExamView HTML Generator 1.1.0'>
 	<meta name='robots' content='noindex,nofollow'>
-	<title>Pre-test Unit 2C</title>
+	<!-- <title>Pre-test Unit 2C</title> -->
 	<style type='text/css'>
 		.spacer {
 			line-height: .7em;
@@ -227,7 +227,7 @@
 			var numCorrect = 0;
 			var numPossible = 0;
 			var numBlank = 0;
-			var numSubjective = 0;
+			var numSubjective = f.num_open_ended.value;
 			var currentInstruction;
 			var currentNarrative;
 			var scorePercent;
@@ -744,17 +744,6 @@
 				}
 			}
 
-			// message saying that you haven't finished evreything
-			if (numBlank > 0) {
-				if (numBlank == 1)
-					msg = "1 question";
-				else
-					msg = numBlank + " questions";
-				if (!confirm("You have not answered " + msg +
-					"  Are you sure you want to end the test?"))
-					return (false);
-			}
-
 			// grading
 
 			index = 0;
@@ -772,7 +761,7 @@
 						scoreDetails[index] = "--";
 						prefixText[index] = "<img src='unit2_lessonc_files/nograde.gif' align='middle'>";
 						isCorrect = false;
-						++numSubjective;
+						// ++numSubjective;
 					} else {
 						var scoreResult = ScoreAnswer(index, text, numPossible);
 						numCorrect = scoreResult.numPoints;
@@ -799,7 +788,10 @@
 					++index;
 				}
 			}
-			numPossible = Math.round(totalPossible * 100 / MAGIC) / 100;
+			
+			
+			numPossible = f.total_num.value
+			console.log(numPossible)
 
 
 			if (f.score_wanted.value != "") {
@@ -811,7 +803,7 @@
 
 			if (totalPossible > 0)
 				// have to divide by MAGIC
-				scorePercent = Math.round(100.0 * numCorrect / (totalPossible / MAGIC));
+				scorePercent = Math.round(100.0 * numCorrect / numPossible);
 			else
 				scorePercent = 0;
 
@@ -821,8 +813,18 @@
 				studentName = "enter your name lol";
 			}
 
+
+
+
+
+
+
+
+
+
+
 			document.writeln("<html>\n<head>");
-			document.writeln("<title>" + titleString + "</title>");
+			document.writeln("<title>" + "Pre-test Unit " + f.title.value + "</title>");
 			document.writeln("<style type='text/css'>");
 			for (i = 0; i < styleText.length; ++i)
 				document.writeln("\t" + styleText[i]);
@@ -1150,21 +1152,30 @@
 					</div>
 					<div class='spacer'>&nbsp;</div>
 					<br>
-					<p class="title">Pre-test Unit 2C</p>
+					<p class="title">Pre-test Unit 1C</p>
 				</td>
 			</tr>
 		</table>
 		<br clear='all'>
 
+
+
+		<!-- MY CREATION!!!!!! -->
 		<br></br>
 		<br></br>
 		<br></br>
 		<h2>Enter the score you want:</h2>
 		<input type='text' name='score_wanted' size='30'>
 		<br></br>
+		<h2>total possible:</h2>
+		<input type="text" name="total_num" size="30">
 		<br></br>
+		<h2>number of open ended problems:</h2>
+		<input type="text" name="num_open_ended" size="30">
+		<br></br>
+		<h2>title of exam:</h2>
+		<input type="text" name="title" size="30">
 		<p>Made by Kepha Sher</p>
-		<p>Your Welcome</p>
 		
 		<a href='javascript:alert("Use the mouse to submit.")'
 						onClick="return(GradeIt(document.forms[0]))">
@@ -1172,6 +1183,12 @@
 
 		<br></br>
 		<br></br>
+
+
+
+
+
+
 
 		<!-- Listening comprehension -->
 
